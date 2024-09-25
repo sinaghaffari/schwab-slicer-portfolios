@@ -1,0 +1,22 @@
+amends "https://raw.githubusercontent.com/sinaghaffari/schwab-slicer-portfolios/0a81b41275fae5fa25cb3eb830fba5c06c215f81/SchwabPortfolio.pkl"
+
+accountHash = "E45C0F3D0F6E404DD3B9282DC702FE11E61805ABEFA6340231D68AD57389B416"
+portfolio {
+  children {
+    [new Equity { ticker = "VOO" }] = 0.5
+    [new Equity { ticker = "VXF" }] = 0.1
+    [new Portfolio {
+      name = "US Stocks"
+      children {
+        [new Equity { ticker = "AAPL" }] = 0.22
+        [new Equity { ticker = "AMD" }] = 0.22
+        [new Equity { ticker = "AMZN" }] = 0.04
+        [new Equity { ticker = "MSFT" }] = 0.05
+        [new Equity { ticker = "NVDA" }] = 0.23
+        [new Equity { ticker = "RIVN" }] = 0.12
+        [new Equity { ticker = "TSLA" }] = 0.04
+        [new Equity { ticker = "TSM" }] = 0.08
+      }
+    }] = 0.4
+  }
+}
