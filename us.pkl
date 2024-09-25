@@ -1,4 +1,4 @@
-amends "https://raw.githubusercontent.com/sinaghaffari/schwab-slicer-portfolios/0a81b41275fae5fa25cb3eb830fba5c06c215f81/SchwabPortfolio.pkl"
+amends "https://raw.githubusercontent.com/sinaghaffari/schwab-slicer-portfolios/refs/tags/v0.1/SchwabPortfolio.pkl"
 
 accountHash = "E45C0F3D0F6E404DD3B9282DC702FE11E61805ABEFA6340231D68AD57389B416"
 portfolio {
