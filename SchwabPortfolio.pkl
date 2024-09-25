@@ -1,0 +1,17 @@
+module SchwabPortfolio
+
+abstract class Node {
+  name: String
+}
+class Equity extends Node {
+  ticker: String
+  name: String = ticker
+}
+open class Portfolio extends Node {
+  name: String
+  children: Mapping<Node, Number>(this.toMap().values.reduce((a, b) -> a + b) == 1 && this.keys.length == this.keys.map((x) -> x.name).length)
+}
+accountHash: String
+portfolio: Portfolio = new {
+  name = "schwab:" + accountHash
+}
