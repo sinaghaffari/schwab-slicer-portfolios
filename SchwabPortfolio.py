@@ -54,6 +54,16 @@ class Portfolio(Node):
     child_names = [child.name for child in self.children.keys()]
     assert len(child_names) == len(set(child_names))
 
+  def all_equities(self) -> set[Equity]:
+    result = set()
+    for child in self.children.keys():
+      if isinstance(child, Equity):
+        result.add(child)
+      elif isinstance(child, Portfolio):
+        result = result.union(child.all_equities())
+    
+    return result
+
   def pretty(self, indent: int = 0) -> str:
     children = [f"{node.pretty(indent + 2)}: {pct}" for node, pct in self.children.items()]
     return f"{'  ' * indent}Portfolio(\n{'  ' * (indent + 1)}name='{self.name}',\n{'  ' * (indent + 1)}children={{\n{'\n'.join(children)}\n{'  ' * (indent + 1)}}})"
