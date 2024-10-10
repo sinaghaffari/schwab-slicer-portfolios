@@ -61,7 +61,17 @@ class Portfolio(Node):
         result.add(child)
       elif isinstance(child, Portfolio):
         result = result.union(child.all_equities())
-    
+    return result
+
+  def flatten(self) -> dict[str, Decimal]:
+    result = {}
+    for node, pct in self.children.items():
+      if isinstance(node, Portfolio):
+        flattened_child = node.flatten()
+        for path, child_pct in flattened_child.items():
+          result[f"{self.name}/{path}"] = pct * child_pct
+      elif isinstance(node, Equity):
+        result[f"{self.name}/{node.ticker}"] = pct
     return result
 
   def pretty(self, indent: int = 0) -> str:
